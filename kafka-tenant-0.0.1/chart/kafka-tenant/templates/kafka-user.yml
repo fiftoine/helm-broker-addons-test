@@ -1,0 +1,23 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaUser
+metadata:
+  name: {{ include "user.name" . }}
+  namespace: {{ .Values.clusterNamespace}}
+  labels:
+    strimzi.io/cluster: "{{ required "clusterName is required" .Values.clusterName }}"
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    type: simple
+    acls:
+    - resource:
+        type: topic
+        name: {{ .Release.Name }}
+        patternType: literal
+      operation: All
+    - resource:
+        type: group
+        name: {{ .Release.Name }}-group
+        patternType: prefix
+      operation: All

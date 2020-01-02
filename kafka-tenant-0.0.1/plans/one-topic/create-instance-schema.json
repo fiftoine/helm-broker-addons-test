@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "clusterName": {
+        "type": "string",
+        "title": "Cluster name"
+      },
+      "clusterNamespace": {
+        "type": "string",
+        "title": "Cluster namespace"
+      }
+    }
+  }

@@ -1,0 +1,6 @@
+name: one-topic
+id: a6078798-70a1-4674-af94-ab9664d36a53
+description: "One topic kafka plan"
+displayName: One topic
+
+bindable: true

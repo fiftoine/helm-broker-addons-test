@@ -1,0 +1,13 @@
+credential:
+- name: HOST
+  value: {{ .Values.clusterName }}-kafka-bootstrap.{{ .Values.clusterNamespace }}.svc.cluster.local:9092
+- name: TOPIC
+  value: {{ template "topic.name" . }}
+- name: USER
+  value: {{ template "user.name" . }}
+- name: PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: {{ template "user.name" . }}
+      key: password
+
