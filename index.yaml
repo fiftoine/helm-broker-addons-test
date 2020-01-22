@@ -3,4 +3,4 @@ entries:
   kafka-tenant:
     - name: kafka-tenant
       description: Kafka tenant
-      version: 0.0.1
+      version: 0.0.2

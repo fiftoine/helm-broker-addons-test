@@ -1,0 +1,14 @@
+{{range .Values.topics}}
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: {{ include "topic.name" $ }}-{{ . }}
+  namespace: {{ $.Values.clusterNamespace}}
+  labels:
+    strimzi.io/cluster: "{{ required "clusterName is required" $.Values.clusterName }}"
+spec:
+  topicName: {{ . }}
+  partitions: {{ $.Values.partitions }}
+  replicas: {{ $.Values.replicas }}
+---
+{{end}}

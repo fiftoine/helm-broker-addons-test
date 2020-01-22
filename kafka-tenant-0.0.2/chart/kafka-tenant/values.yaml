@@ -1,0 +1,9 @@
+# Default values for kafka-tenant.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+clusterName: kafka-instance
+clusterNamespace: kafka-ns
+topics: []
+partitions: 3
+replicas: 1

@@ -2,7 +2,10 @@ credential:
 - name: HOST
   value: {{ .Values.clusterName }}-kafka-bootstrap.{{ .Values.clusterNamespace }}.svc.cluster.local:9092
 - name: TOPIC
-  value: {{ template "topic.name" . }}
+  value: 
+{{- range .Values.topics -}}
+  - {{ . }}
+{{- end -}}
 - name: GROUP_ID
   value: {{ template "group.name" . }}
 - name: USER
